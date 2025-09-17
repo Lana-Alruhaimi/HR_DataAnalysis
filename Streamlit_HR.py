@@ -63,19 +63,32 @@ with st.form("New_Emp_Info"):
     st.write("Enter Employee's Information: ")
 
     EmployeeNumber = st.number_input("Employee Number")
-    Department = st.selectbox("Department")
+    Department = st.selectbox("Department",Depts)
     EducationField = st.text_input("Education Field")
     JobRole = st.text_input("Job Role")
     MonthlyIncome = st.number_input("Monthly Income", min_value=0) #so salary isnt negative
 
-    #submitted =
-    #testing commit
-    #testtt
+    submitted = st.form_submit_button('Add Employee') #submit button
+    
 
 
-
-
-
+if submitted:
+    New_Emp_Data = { #create dictionary
+        "Employee Number":EmployeeNumber,
+        "Department":Department,
+        "Education Field":EducationField,
+        "Job Role": JobRole,
+        "Monthly Income":MonthlyIncome
+        }
+    if not all(New_Emp_Data.values()): #aka if there are empty fields
+        st.warning("Please make sure all fields are filled.")
+    else:
+        New_Emp_df = pd.DataFrame([New_Emp_Data]) #dataframe for new employee
+        df = pd.concat([df,New_Emp_df],ignore_index=True) #add to main dataframe and make sure no indexes are repeated
+        df.to_csv('Employee_Data.csv', index=False) #save df w/new employee (in csv file), dont add row num to csv
+        st.success("New employee has been added.")
+        st.rerun()
 
 
 ### Update employee salary
+
