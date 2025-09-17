@@ -61,17 +61,13 @@ st.header ("Add new employee")
 
 with st.form("New_Emp_Info"):
     st.write("Enter Employee's Information: ")
-
-    EmployeeNumber = st.number_input("Employee Number")
+    EmployeeNumber = st.number_input("Employee Number", step=1) #step=1 makes it only integers
     Department = st.selectbox("Department",Depts)
     EducationField = st.text_input("Education Field")
     JobRole = st.text_input("Job Role")
     MonthlyIncome = st.number_input("Monthly Income", min_value=0) #so salary isnt negative
-
     submitted = st.form_submit_button('Add Employee') #submit button
     
-
-
 if submitted:
     New_Emp_Data = { #create dictionary
         "Employee Number":EmployeeNumber,
@@ -82,6 +78,8 @@ if submitted:
         }
     if not all(New_Emp_Data.values()): #aka if there are empty fields
         st.warning("Please make sure all fields are filled.")
+    elif EmployeeNumber in df ['EmployeeNumber'].values:
+        st.warning("An employee with that number already exists")
     else:
         New_Emp_df = pd.DataFrame([New_Emp_Data]) #dataframe for new employee
         df = pd.concat([df,New_Emp_df],ignore_index=True) #add to main dataframe and make sure no indexes are repeated
@@ -90,5 +88,5 @@ if submitted:
         st.rerun()
 
 
-### Update employee salary
+########### Update Employee Data ###########
 
