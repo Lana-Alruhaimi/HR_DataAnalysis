@@ -4,13 +4,28 @@ import plotly.express as px
 
 df = pd.read_csv('Employee_Data.csv')
 
-Depts = df['Department'].unique() #list of dept names (no repeating)
+########### Interactive Filter (Age) ###########
+
+### Create filter
+Age_Min = int(df['Age'].min())
+Age_Max = int (df['Age'].max())
+Age_Select = st.sidebar.slider(
+    'Select Age Range',
+    min_value = Age_Min,
+    max_value = Age_Max,
+    value =(Age_Min,Age_Max)
+)
+
+### Interactively filter employee's data
+Filtered_df = df [df['Age'].between(Age_Select[0],Age_Select[1])]
+
+Depts = Filtered_df['Department'].unique() #list of dept names (no repeating) for dropdown chart
 Brand_Colors = ['#4f008c','#c2a6cf','#e4d9eb','#e4e9ee'] # Brand colors hex code
 
 ########### Data Visualization ###########
 
 ### Bar chart (Employees per Department) 
-Dept_Num = df['Department'].value_counts().reset_index() #counts emp per dept and converts to dataframe so i can use plotly express (more customization)
+Dept_Num = Filtered_df['Department'].value_counts().reset_index() #counts emp per dept and converts to dataframe so i can use plotly express (more customization)
 Dept_Num.columns = ['Department','Number of Employees'] #label of columns i want in the bar chart
 
 Bar = px.bar( #Bar creation
@@ -24,7 +39,7 @@ Bar = px.bar( #Bar creation
 st.plotly_chart (Bar) #to display the bar chart
 
 ### Pie chart (job satisfaction)
-Sat_Num = df['JobSatisfaction'].value_counts().reset_index() #Sat_Num = number of employees per satisfaction level
+Sat_Num = Filtered_df['JobSatisfaction'].value_counts().reset_index() #Sat_Num = number of employees per satisfaction level
 Sat_Num.columns = ['Job Satisfaction','Number of Employees']
 
 Pie = px.pie(
@@ -39,7 +54,7 @@ st.plotly_chart(Pie)
 
 ### Box chart (salary per education field)
 Box = px.box(
-    df,
+    Filtered_df,
     x = 'EducationField', # x because it is fixed (categorical)
     y = 'MonthlyIncome',
     color = 'EducationField',
