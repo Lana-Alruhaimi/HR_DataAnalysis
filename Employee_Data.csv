@@ -1469,3 +1469,6 @@ Age,Attrition,BusinessTravel,DailyRate,Department,DistanceFromHome,Education,Edu
 27.0,No,Travel_Rarely,155.0,Research & Development,4.0,3.0,Life Sciences,1.0,2064.0,2.0,Male,87.0,4.0,2.0,Manufacturing Director,2.0,Married,6142.0,5174.0,1.0,Y,Yes,20.0,4.0,2.0,80.0,1.0,6.0,0.0,3.0,6.0,2.0,0.0,3.0
 49.0,No,Travel_Frequently,1023.0,Sales,2.0,3.0,Medical,1.0,2065.0,4.0,Male,63.0,2.0,2.0,Sales Executive,2.0,Married,5390.0,13243.0,2.0,Y,No,14.0,3.0,4.0,80.0,0.0,17.0,3.0,2.0,9.0,6.0,0.0,8.0
 34.0,No,Travel_Rarely,628.0,Research & Development,8.0,3.0,Medical,1.0,2068.0,2.0,Male,82.0,4.0,2.0,Laboratory Technician,3.0,Married,4404.0,10228.0,2.0,Y,No,12.0,3.0,1.0,80.0,0.0,6.0,3.0,4.0,4.0,3.0,1.0,2.0
+,,,,Human Resources,,,Medical,,9990.0,,,,,,Lab assistant,,,25000.0,,,,,,,,,,,,,,,,
+,,,,Human Resources,,,Life science,,9997.0,,,,,,Manager,,,45000.0,,,,,,,,,,,,,,,,
+,,,,Human Resources,,,Education,,2067.0,,,,,,Assistant manager,,,30000.0,,,,,,,,,,,,,,,,

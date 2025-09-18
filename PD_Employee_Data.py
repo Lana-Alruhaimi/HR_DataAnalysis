@@ -2,7 +2,6 @@ import pandas as pd
 
 df = pd.read_csv('Employee_Data.csv') #Employee data is saved as df
 df = df.dropna() #drop null values
-df.to_csv('Employee_Data.csv',index=False) #updates csv to remove null values
 print(df.info()) #print proving there are no null values
 
 #print(df_clean.info())
