@@ -56,29 +56,29 @@ st.dataframe(Filtered_Dept) # Displays result as table
 
 ########### Update Employee Data ###########
 
-### Add new employee
-st.header ("Add new employee")
+### Add New Employee
+st.header ("Add New Employee")
 
-with st.form("New_Emp_Info"):
+with st.form("New_Emp_Info_Form"):
     st.write("Enter Employee's Information: ")
-    EmployeeNumber = st.number_input("Employee Number", step=1) #step=1 makes it only integers
-    Department = st.selectbox("Department",Depts)
-    EducationField = st.text_input("Education Field")
-    JobRole = st.text_input("Job Role")
-    MonthlyIncome = st.number_input("Monthly Income", min_value=0) #so salary isnt negative
+    Emp_Num = st.number_input("Employee Number", step=1) #step=1 makes it only integers
+    Dept = st.selectbox("Department",Depts)
+    Edu_Field = st.text_input("Education Field")
+    Job_Role = st.text_input("Job Role")
+    Sal = st.number_input("Monthly Income", min_value=0) #so salary isnt negative
     submitted = st.form_submit_button('Add Employee') #submit button
     
 if submitted:
     New_Emp_Data = { #create dictionary
-        "EmployeeNumber":EmployeeNumber,
-        "Department":Department,
-        "EducationField":EducationField,
-        "JobRole": JobRole,
-        "MonthlyIncome":MonthlyIncome
+        "EmployeeNumber":Emp_Num,
+        "Department":Dept,
+        "EducationField":Edu_Field,
+        "JobRole": Job_Role,
+        "MonthlyIncome":Sal
         }
     if not all(New_Emp_Data.values()): #aka if there are empty fields
         st.warning("Please make sure all fields are filled.")
-    elif EmployeeNumber in df ['EmployeeNumber'].values:
+    elif Emp_Num in df ['EmployeeNumber'].values:
         st.warning("An employee with that number already exists")
     else:
         New_Emp_df = pd.DataFrame([New_Emp_Data]) #dataframe for new employee
@@ -88,5 +88,9 @@ if submitted:
         st.rerun()
 
 
-########### Update Employee Data ###########
+#### Update Employee Salary
+"""st.header("Update Employee Salary")
 
+with st.form("Update_Sal_Form"):
+    st.write("Enter Employee Information")
+    Emp_Num_Update = st.number_input() #Employee number that will have updated salary"""
