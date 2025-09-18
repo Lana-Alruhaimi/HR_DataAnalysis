@@ -66,9 +66,9 @@ with st.form("New_Emp_Info_Form"):
     Edu_Field = st.text_input("Education Field")
     Job_Role = st.text_input("Job Role")
     Sal = st.number_input("Monthly Income", min_value=0) #so salary isnt negative
-    submitted = st.form_submit_button('Add Employee') #submit button
+    Submitted = st.form_submit_button('Add Employee') #submit button
     
-if submitted:
+if Submitted:
     New_Emp_Data = { #create dictionary
         "EmployeeNumber":Emp_Num,
         "Department":Dept,
@@ -89,8 +89,20 @@ if submitted:
 
 
 #### Update Employee Salary
-"""st.header("Update Employee Salary")
+st.header("Update Employee Salary")
 
 with st.form("Update_Sal_Form"):
-    st.write("Enter Employee Information")
-    Emp_Num_Update = st.number_input() #Employee number that will have updated salary"""
+    st.write("Enter Employee Information:")
+    Emp_Num_Update = st.number_input("Employee Number", step=1) #Employee number that will have updated salary
+    Sal_Update = st.number_input("Monthly Income", min_value=0)
+    Submitted_Update = st.form_submit_button('Update Employee Salary')
+
+    if Submitted_Update: #no need for dictionary, because we are updating a value, not inserting a row
+        if Emp_Num_Update not in df ['EmployeeNumber'].values: # we can't update the salary if the employee doesn't exist
+            st.warning("An employee with that number doesn't exist")
+        else:
+            Sal_Update_Index = df[df['EmployeeNumber'] == Emp_Num_Update].index #finds index based on employee number
+            df.loc[Sal_Update_Index,'MonthlyIncome'] = Sal_Update #updates employee salary
+            df.to_csv('Employee_Data.csv', index=False) 
+            st.success(f"Employee salary has been updated for Employee number: {Emp_Num_Update}.")
+            st.rerun()
