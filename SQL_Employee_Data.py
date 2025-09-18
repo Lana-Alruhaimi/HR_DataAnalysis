@@ -45,15 +45,24 @@ try:
         print(f"{row[0]}:{row[1]}")
 
     # What is the average monthly income by job role?
-    cursor.execute("SELECT JobRole, AVG(MonthlyIncome) FROM Table_of_Employees GROUP BY JobRole")
+    cursor.execute("SELECT JobRole, AVG(MonthlyIncome) AS Avg_Sal FROM Table_of_Employees GROUP BY JobRole ORDER BY Avg_Sal")
     Avg_Sal_Role = cursor.fetchall()
-    print ("\n- Average Monthly Salary per Role:")
+    print ("\n- Average Monthly Salary per Role (lowest to highest):")
     for row in Avg_Sal_Role:
         print(f"{row[0]}: {row[1]}")
     
     # Who are the top 5 employees by performance rating?
+    cursor.execute("SELECT EmployeeNumber, PerformanceRating FROM Table_of_Employees ORDER BY PerformanceRating DESC LIMIT 5")
+    Top5_Rate = cursor.fetchall()
+    print (f"\n- Top 5 Employees by Performance Rating:")
+    for row in Top5_Rate:
+        print(f"(Employee Number: {row[0]}) Rating: {row[1]}")
 
     # Which department has the highest average performance rating?
+    cursor.execute("SELECT Department, AVG(PerformanceRating) AS Avg_Rate FROM Table_of_Employees GROUP BY Department ORDER BY Avg_Rate DESC LIMIT 1")
+    Max_Rate = cursor.fetchone()
+    print(f"\n- The {Max_Rate[0]} Department has the Highest Average Performance Rating: {Max_Rate[1]}")
+
     #### My Questions ###
     # What is the average monthly income per total working years? (sorted by highest income to lowest)
     # What is the average salary hike % per Education field (sorted by highest salary hike % to lowest)
