@@ -70,11 +70,11 @@ with st.form("New_Emp_Info"):
     
 if submitted:
     New_Emp_Data = { #create dictionary
-        "Employee Number":EmployeeNumber,
+        "EmployeeNumber":EmployeeNumber,
         "Department":Department,
-        "Education Field":EducationField,
-        "Job Role": JobRole,
-        "Monthly Income":MonthlyIncome
+        "EducationField":EducationField,
+        "JobRole": JobRole,
+        "MonthlyIncome":MonthlyIncome
         }
     if not all(New_Emp_Data.values()): #aka if there are empty fields
         st.warning("Please make sure all fields are filled.")

@@ -1,7 +1,14 @@
 import pandas as pd
 
 df = pd.read_csv('Employee_Data.csv') #Employee data is saved as df
-print(df.info()) # results show no missing data (its already clean)
+
+columns_to_delete = ['Employee Number', 'Education Field', 'Job Role', 'Monthly Income'] #accidently made column names w/spaces
+df = df.drop(columns=columns_to_delete, axis=1) #deletes columns with spaces
+
+df = df.dropna() #drop null values
+print(df.info()) #print proving there are no null values
+
+#print(df_clean.info())
 print("\n\n\n\n**********************************************************\n")
 
 ### Given Questions ###
@@ -9,6 +16,7 @@ print("\n\n\n\n**********************************************************\n")
 # How many total employees are there? 
 Emp_Num = df.shape[0] #number of rows (for columns replace 0 w/ 1)
 print (f"\nNumber of Employees: {Emp_Num}")
+
 
 # What is the employee count for each department? 
 Dept_Num = df.groupby('Department').size() #group by splits into smaller dfs, size counts rows
