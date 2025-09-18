@@ -16,8 +16,9 @@ try:
     print("Data inserted successfully.")
 
     ### Print table
-    '''
+    
     cursor = conn.cursor()
+    '''
     cursor.execute("SELECT * FROM Table_of_Employees")
     rows = cursor.fetchall()
     print("\n--------Table of Employees--------")
@@ -32,6 +33,7 @@ try:
     ### Given Questions ###
 
     # How many total employees are there?
+    
 
     # What is the employee count for each department?
     # What is the average monthly income by job role?
