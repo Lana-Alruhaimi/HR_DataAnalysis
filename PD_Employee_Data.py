@@ -14,8 +14,8 @@ print("\n\n\n\n**********************************************************\n")
 ### Given Questions ###
 
 # How many total employees are there? 
-Emp_Num = df.shape[0] #number of rows (for columns replace 0 w/ 1)
-print (f"\nNumber of Employees: {Emp_Num}")
+Emp_Amount = df.shape[0] #number of rows (for columns replace 0 w/ 1)
+print (f"\nNumber of Employees: {Emp_Amount}")
 
 
 # What is the employee count for each department? 

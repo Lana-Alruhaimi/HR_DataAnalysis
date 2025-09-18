@@ -33,7 +33,8 @@ try:
     ### Given Questions ###
 
     # How many total employees are there?
-    
+    cursor.execute("SELECT COUNT(EmployeeNumber) FROM Table_of_Employees")
+    #Emp_Amount = 
 
     # What is the employee count for each department?
     # What is the average monthly income by job role?
