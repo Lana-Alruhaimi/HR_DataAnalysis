@@ -11,9 +11,9 @@ df = df.dropna() #drop null values (clean data)
 Emp_db ='Employee_Data.db'
 try:
     conn = sql.connect(Emp_db) #create connection
-    print(f"Successful connection to {Emp_db}.")
+    print(f"\nSuccessful connection to {Emp_db}.")
     df.to_sql('Table_of_Employees', conn, if_exists='replace',index=False) #replaces current to make sure the data is as up-to-date as possible
-    print("Data inserted successfully.")
+    print("\nData inserted successfully.")
 
     ### Print table
     
@@ -28,6 +28,7 @@ try:
     for row in rows:
         print (row)
     '''
+    print("\n\n\n\n**********************************************************\n")
     ########### Data Analysis Begins ###########
     
     ### Given Questions ###
@@ -64,10 +65,28 @@ try:
     print(f"\n- The {Max_Rate[0]} Department has the Highest Average Performance Rating: {Max_Rate[1]}")
 
     #### My Questions ###
+
     # What is the average monthly income per total working years? (sorted by highest income to lowest)
+    cursor.execute("SELECT TotalWorkingYears, AVG(MonthlyIncome) AS Avg_Sal FROM Table_of_Employees GROUP BY TotalWorkingYears ORDER BY Avg_Sal DESC") #DESC maks it high to low instead of the opposite
+    Avg_Sal_Years = cursor.fetchall()
+    print("\n- Average Salary per Years Working (Highest to lowest):")
+    for row in Avg_Sal_Years:
+        print(f"{row[0]}: {row[1]}")
+
     # What is the average salary hike % per Education field (sorted by highest salary hike % to lowest)
+    cursor.execute("SELECT EducationField, AVG(PercentSalaryHike) AS Avg_Sal_Hike FROM Table_of_Employees GROUP BY EducationField ORDER BY Avg_Sal_Hike DESC")
+    Avg_Sal_Hike = cursor.fetchall()
+    print("\n- Average Salary Hike Percent per Education Field (Highest to lowest):")
+    for row in Avg_Sal_Hike:
+        print(f"{row[0]}: {row[1]}")
+
     # What is the average monthly salary per gender?
-    
+    cursor.execute("SELECT Gender, AVG(MonthlyIncome) FROM Table_of_Employees GROUP BY Gender")
+    Avg_Sal_G = cursor.fetchall()
+    print("\n- Average Salary for each Gender:")
+    for row in Avg_Sal_G:
+        print(f"{row[0]}: {row[1]}")
+
     ########### Data Analysis Ends ###########
 
 except sql.Error as e: #saves error in var to print later (helps understand the reason for error)
