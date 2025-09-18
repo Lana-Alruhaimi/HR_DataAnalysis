@@ -47,11 +47,12 @@ try:
     # What is the average monthly income by job role?
     cursor.execute("SELECT JobRole, AVG(MonthlyIncome) FROM Table_of_Employees GROUP BY JobRole")
     Avg_Sal_Role = cursor.fetchall()
-    print ("\n- Average Monthly Salary per Role (Highest to lowest):")
+    print ("\n- Average Monthly Salary per Role:")
     for row in Avg_Sal_Role:
         print(f"{row[0]}: {row[1]}")
     
     # Who are the top 5 employees by performance rating?
+
     # Which department has the highest average performance rating?
     #### My Questions ###
     # What is the average monthly income per total working years? (sorted by highest income to lowest)
