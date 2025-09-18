@@ -4,6 +4,7 @@ df = pd.read_csv('Employee_Data.csv') #Employee data is saved as df
 
 columns_to_delete = ['Employee Number', 'Education Field', 'Job Role', 'Monthly Income'] #accidently made column names w/spaces
 df = df.drop(columns=columns_to_delete, axis=1) #deletes columns with spaces
+df.to_csv('Employee_Data.csv',index=False) #updates csv to remove unneeded columns
 
 df = df.dropna() #drop null values
 print(df.info()) #print proving there are no null values
