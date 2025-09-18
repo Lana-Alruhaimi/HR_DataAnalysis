@@ -35,19 +35,19 @@ try:
     # How many total employees are there?
     cursor.execute("SELECT COUNT(EmployeeNumber) FROM Table_of_Employees")
     Emp_Amount = cursor.fetchone()[0] # takes result as num , instead of tuple
-    print (f"\nNumber of Employees: {Emp_Amount}\n")
+    print (f"\n- Number of Employees: {Emp_Amount}\n")
 
     # What is the employee count for each department?
     cursor.execute("SELECT Department, COUNT(EmployeeNumber) FROM Table_of_Employees GROUP BY Department")
     Dept_Num = cursor.fetchall()
-    print ("Employees per Department:\n")
+    print ("- Employees per Department:")
     for row in Dept_Num:
         print(f"{row[0]}:{row[1]}")
 
     # What is the average monthly income by job role?
     cursor.execute("SELECT JobRole, AVG(MonthlyIncome) FROM Table_of_Employees GROUP BY JobRole")
     Avg_Sal_Role = cursor.fetchall()
-    print ("\n\nAverage Monthly Salary per Role (Highest to lowest):\n")
+    print ("\n- Average Monthly Salary per Role (Highest to lowest):")
     for row in Avg_Sal_Role:
         print(f"{row[0]}: {row[1]}")
     
@@ -61,8 +61,8 @@ try:
     ########### Data Analysis Ends ###########
 
 except sql.Error as e: #saves error in var to print later (helps understand the reason for error)
-    print(f"Error: {e}")
+    print(f"\nError: {e}")
 finally:
     if 'conn' in locals() and conn:
         conn.close() # closing force saves any updates and unlocks db
-        print("Database connection closed.")
+        print("\nDatabase connection closed.\n")
