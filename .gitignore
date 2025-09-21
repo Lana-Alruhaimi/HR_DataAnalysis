@@ -1,0 +1,2 @@
+# Ignore the visual demo GIF from being tracked by Git.
+/visual demo.gif
