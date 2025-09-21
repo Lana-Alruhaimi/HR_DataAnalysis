@@ -41,14 +41,14 @@ try:
     # What is the employee count for each department?
     cursor.execute("SELECT Department, COUNT(EmployeeNumber) FROM Table_of_Employees GROUP BY Department")
     Dept_Num = cursor.fetchall()
-    print ("- Employees per Department:")
+    print ("- Employees by Department:")
     for row in Dept_Num:
         print(f"{row[0]}:{row[1]}")
 
     # What is the average monthly income by job role?
     cursor.execute("SELECT JobRole, AVG(MonthlyIncome) AS Avg_Sal FROM Table_of_Employees GROUP BY JobRole ORDER BY Avg_Sal")
     Avg_Sal_Role = cursor.fetchall()
-    print ("\n- Average Monthly Salary per Role (lowest to highest):")
+    print ("\n- Average Monthly Salary by Role (lowest to highest):")
     for row in Avg_Sal_Role:
         print(f"{row[0]}: {row[1]}")
     
@@ -66,21 +66,21 @@ try:
 
     #### My Questions ###
 
-    # What is the average monthly income per total working years? (sorted by highest income to lowest)
+    # What is the average monthly income by total working years? (sorted by highest income to lowest)
     cursor.execute("SELECT TotalWorkingYears, AVG(MonthlyIncome) AS Avg_Sal FROM Table_of_Employees GROUP BY TotalWorkingYears ORDER BY Avg_Sal DESC") #DESC maks it high to low instead of the opposite
     Avg_Sal_Years = cursor.fetchall()
-    print("\n- Average Salary per Years Working (Highest to lowest):")
+    print("\n- Average Salary by Years Working (Highest to lowest):")
     for row in Avg_Sal_Years:
         print(f"{row[0]}: {row[1]}")
 
-    # What is the average salary hike % per Education field (sorted by highest salary hike % to lowest)
+    # What is the average salary hike % by Education field (sorted by highest salary hike % to lowest)
     cursor.execute("SELECT EducationField, AVG(PercentSalaryHike) AS Avg_Sal_Hike FROM Table_of_Employees GROUP BY EducationField ORDER BY Avg_Sal_Hike DESC")
     Avg_Sal_Hike = cursor.fetchall()
-    print("\n- Average Salary Hike Percent per Education Field (Highest to lowest):")
+    print("\n- Average Salary Hike Percent by Education Field (Highest to lowest):")
     for row in Avg_Sal_Hike:
         print(f"{row[0]}: {row[1]}")
 
-    # What is the average monthly salary per gender?
+    # What is the average monthly salary by gender?
     cursor.execute("SELECT Gender, AVG(MonthlyIncome) FROM Table_of_Employees GROUP BY Gender")
     Avg_Sal_G = cursor.fetchall()
     print("\n- Average Salary for each Gender:")

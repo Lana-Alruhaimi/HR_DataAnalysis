@@ -20,18 +20,18 @@ print (f"\n- Number of Employees: {Emp_Amount}")
 
 # What is the employee count for each department? 
 Dept_Num = df.groupby('Department').size() #group by splits into smaller dfs, size counts rows
-print (f"\n- Employees per Department:\n{Dept_Num}")
+print (f"\n- Employees by Department:\n{Dept_Num}")
 
 # What is the average monthly income by job role? (sorted by highest income to lowest)
 Avg_Sal_Role= df.groupby('JobRole')['MonthlyIncome'].mean().sort_values(ascending=False) #[specify column to calculate], mean is avg, sort values orders it
-print (f"\n- Average Monthly Salary per Role (Highest to lowest):\n{Avg_Sal_Role}")
+print (f"\n- Average Monthly Salary by Role (Highest to lowest):\n{Avg_Sal_Role}")
 
 # Who are the top 5 employees by performance rating? 
 Top5_Rate = df.nlargest(5,'PerformanceRating')# would add ['Name'] if I only wanted to print their names, but df doesnt have names
 print (f"\n- Top 5 Employees by Performance Rating:\n{Top5_Rate}")
 
 # Which department has the highest average performance rating? 
-Avg_Rate = df.groupby("Department")['PerformanceRating'].mean() #Avg per dept
+Avg_Rate = df.groupby("Department")['PerformanceRating'].mean() #Avg by dept
 Max_Rate_Dept = Avg_Rate.idxmax() #idxmax returns the index(name) of highest dept
 Max_Rate_Num = Avg_Rate.max()
 print(f"\n- The {Max_Rate_Dept} Department has the Highest Average Performance Rating: {Max_Rate_Num}")
@@ -40,14 +40,14 @@ print(f"\n- The {Max_Rate_Dept} Department has the Highest Average Performance R
 
 #### My Questions ###
 
-# What is the average monthly income per total working years? (sorted by highest income to lowest)
+# What is the average monthly income by total working years? (sorted by highest income to lowest)
 Avg_Sal_Years = df.groupby('TotalWorkingYears')['MonthlyIncome'].mean().sort_values(ascending=False)
-print(f"\n- Average Salary per Years Working (Highest to lowest):\n{Avg_Sal_Years}")
+print(f"\n- Average Salary by Years Working (Highest to lowest):\n{Avg_Sal_Years}")
 
-# What is the average salary hike % per Education field (sorted by highest salary hike % to lowest)
+# What is the average salary hike % by Education field (sorted by highest salary hike % to lowest)
 Avg_SalH_Edu = df.groupby('EducationField')['PercentSalaryHike'].mean().sort_values(ascending=False) #average salary hike
-print(f"\n- Average Salary Hike Percent per Education Field (Highest to lowest):\n{Avg_SalH_Edu}")
+print(f"\n- Average Salary Hike Percent by Education Field (Highest to lowest):\n{Avg_SalH_Edu}")
 
-# What is the average monthly salary per gender?
+# What is the average monthly salary by gender?
 Avg_Sal_G = df.groupby('Gender')['MonthlyIncome'].mean()
 print (f"\n- Average Salary for each Gender:\n{Avg_Sal_G}")
