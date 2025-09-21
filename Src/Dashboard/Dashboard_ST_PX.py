@@ -30,8 +30,8 @@ Dept_Num.columns = ['Department','Number of Employees'] #label of columns i want
 
 Bar = px.bar( #Bar creation
     Dept_Num,
-    x = 'Number of Employees',
-    y = 'Department',
+    x = 'Department',
+    y = 'Number of Employees',
     color='Department', #makes each bar diff color
     color_discrete_sequence= Brand_Colors,
     title = "Employees by Department"
