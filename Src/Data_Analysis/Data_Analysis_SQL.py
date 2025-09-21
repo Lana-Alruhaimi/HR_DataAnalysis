@@ -15,10 +15,10 @@ try:
     df.to_sql('Table_of_Employees', conn, if_exists='replace',index=False) #replaces current to make sure the data is as up-to-date as possible
     print("\nData inserted successfully.")
 
-    ### Print table
     
     cursor = conn.cursor()
     '''
+    # Print table
     cursor.execute("SELECT * FROM Table_of_Employees")
     rows = cursor.fetchall()
     print("\n--------Table of Employees--------")

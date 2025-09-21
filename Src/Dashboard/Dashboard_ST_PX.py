@@ -34,7 +34,7 @@ Bar = px.bar( #Bar creation
     y = 'Department',
     color='Department', #makes each bar diff color
     color_discrete_sequence= Brand_Colors,
-    title = "Employees per Department"
+    title = "Employees by Department"
 ) 
 st.plotly_chart (Bar) #to display the bar chart
 
@@ -65,7 +65,7 @@ st.plotly_chart(Box)
 
 ### Dropdown Menu (departments)
 Selected_Dept = st.selectbox('Choose a department', Depts) #creates dropdown menu & saves users choice
-Filtered_Dept = df[df['Department']==Selected_Dept] #filters depts based on selected dept
+Filtered_Dept = Filtered_df[Filtered_df['Department']==Selected_Dept] #filters depts based on selected dept
 st.dataframe(Filtered_Dept) # Displays result as table
 
 
