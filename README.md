@@ -3,11 +3,15 @@ MIT License
 Data analysis and interactive dashboard creation on HR database. 
 
 ## Table of Content:
+*[Visual Demo](#visual-demo)
 * [Project Overview](#project-overview)
 * [Data Source and Dictionary](#data-source-and-dictionary)
 * [Technology Stack](#technology-stack)
 * [Setup and Local Installation](#setup-and-local-installation)
 * [Author and Acknowledgements](#author-and-acknowledgements)
+  
+## Visual Demo:
+![Streamlit visual demo](https://github.com/Lana-Alruhaimi/HR_DataAnalysis/blob/main/Visual%20Demo.gif)
 
 ## Project Overview:
 The purpose of the project is to create an interactive dashboard and conduct data analysis to help HR members gain a better understanding of employee data. This could result in improved efficiency, due to the HR members better understanding the employees, and in turn, how those employees can help the organization grow and grow alongside it.
