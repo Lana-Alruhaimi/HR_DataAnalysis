@@ -28,7 +28,7 @@ Brand_Colors = ['#4f008c','#c2a6cf','#e4d9eb','#e4e9ee'] # Brand colors hex code
 Dept_Num = Filtered_df['Department'].value_counts().reset_index() #counts emp per dept and converts to dataframe so i can use plotly express (more customization)
 Dept_Num.columns = ['Department','Number of Employees'] #label of columns i want in the bar chart
 
-Bar = px.bar( #Bar creation
+Dept_Num_Bar = px.bar( #Bar creation
     Dept_Num,
     x = 'Department',
     y = 'Number of Employees',
@@ -36,13 +36,13 @@ Bar = px.bar( #Bar creation
     color_discrete_sequence= Brand_Colors,
     title = "Employees by Department"
 ) 
-st.plotly_chart (Bar) #to display the bar chart
+st.plotly_chart (Dept_Num_Bar) #to display the bar chart
 
 ### Pie chart (job satisfaction)
 Sat_Num = Filtered_df['JobSatisfaction'].value_counts().reset_index() #Sat_Num = number of employees per satisfaction level
 Sat_Num.columns = ['Job Satisfaction','Number of Employees']
 
-Pie = px.pie(
+Sat_Pie = px.pie(
     Sat_Num,
     values='Number of Employees',
     names = 'Job Satisfaction',
@@ -50,10 +50,10 @@ Pie = px.pie(
     color_discrete_sequence=Brand_Colors,
     title = 'Job Satisfaction Distribution',
 )
-st.plotly_chart(Pie)
+st.plotly_chart(Sat_Pie)
 
 ### Box chart (salary per education field)
-Box = px.box(
+Edu_Field_Box = px.box(
     Filtered_df,
     x = 'EducationField', # x because it is fixed (categorical)
     y = 'MonthlyIncome',
@@ -61,7 +61,7 @@ Box = px.box(
     color_discrete_sequence=Brand_Colors,
     title = 'Salary Distribution by Education Field'
 )
-st.plotly_chart(Box)
+st.plotly_chart(Edu_Field_Box)
 
 ### Dropdown Menu (departments)
 Selected_Dept = st.selectbox('Choose a department', Depts) #creates dropdown menu & saves users choice
