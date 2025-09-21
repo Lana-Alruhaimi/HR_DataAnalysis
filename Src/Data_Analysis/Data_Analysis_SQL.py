@@ -4,11 +4,11 @@ import pandas as pd
 ########### Load, Clean, & Insert Data ###########
 
 ### Load data into Pandas data frame & clean it
-df = pd.read_csv('Employee_Data.csv') #Employee data is saved as df
+df = pd.read_csv('Data/Employee_Data.csv') #allows read after folder changes and code stays portable
 df = df.dropna() #drop null values (clean data)
 
 ### Create local SQLite database and insert data
-Emp_db ='Employee_Data.db'
+Emp_db ='Data/Employee_Data.db'
 try:
     conn = sql.connect(Emp_db) #create connection
     print(f"\nSuccessful connection to {Emp_db}.")

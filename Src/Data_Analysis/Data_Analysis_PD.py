@@ -3,7 +3,7 @@ import pandas as pd
 
 ########### Load & Clean Data ###########
 
-df = pd.read_csv('Employee_Data.csv') #Employee data is saved as df
+df = pd.read_csv('Data/Employee_Data.csv') #allows read after folder changes and code stays portable
 df = df.dropna() #drop null values (clean data)
 print(df.info()) #print proving there are no null values
 print("\n\n\n\n**********************************************************\n")

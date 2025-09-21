@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv('Employee_Data.csv')
+df = pd.read_csv('../../Data/Employee_Data.csv') #allows read after folder changes and code stays portable
 
 ########### Interactive Filter (Age) ###########
 
