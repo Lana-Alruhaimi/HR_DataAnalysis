@@ -28,21 +28,21 @@ Make sure you have Anaconda, Conda, Python, and Git installed before beginning.
 
 ### 1- Clone the Repository:
 open command prompt and clone the repository with the command below
-'git clone https://github.com/Lana-Alruhaimi/HR_DataAnalysis.git'
+`git clone https://github.com/Lana-Alruhaimi/HR_DataAnalysis.git`
 
 then open the project directory
-'cd HR_DataAnalysis'
+`cd HR_DataAnalysis`
 
 ### 2- Create and activate Conda:
 using environment.yml, create a new conda enviornment with all necessary dependancies.
-'conda env create -f environment.yml'
+`conda env create -f environment.yml`
 
 then activate it
-'conda activate base'
+`conda activate base`
 
 ### 3- Run Streamlit
 after installing everthing, you can launch streamlit with the command below:
-'streamlit run Dashboard_ST_PX.py'
+`streamlit run Dashboard_ST_PX.py`
 
 ## Author and Acknowledgements:
 Code written by Lana, Data provided by Kaggle
