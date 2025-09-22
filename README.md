@@ -46,7 +46,7 @@ then activate it
 
 ### 3- Run Streamlit
 after installing everthing, you can launch streamlit with the command below:
-`streamlit run Dashboard_ST_PX.py`
+`streamlit run Src/Dashboard/Dashboard_ST_PX.py`
 
 ## Author and Acknowledgements:
 Code written by Lana, Data provided by Kaggle
