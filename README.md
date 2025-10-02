@@ -3,7 +3,7 @@ MIT License
 Data analysis and interactive dashboard creation on HR database. 
 
 ## Table of Content:
-*[Visual Demo](#visual-demo)
+* [Visual Demo](#visual-demo)
 * [Project Overview](#project-overview)
 * [Data Source and Dictionary](#data-source-and-dictionary)
 * [Technology Stack](#technology-stack)
